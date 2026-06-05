@@ -1,4 +1,5 @@
-const Course = require("../models/Courses")
+import Course from "../models/Courses.js"
+
 
 const createCourse = async (studentId, courseData) => {
     const { courseName, courseCode, courseUnit, description, examDate, lecturerName } = courseData
@@ -64,7 +65,7 @@ const updateCourse = async (studentId, courseId, updateData) => {
     return course
 }
 
-module.exports = {
+export {
     createCourse,
     getStudentCourses,
     getSingleCourse,

@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken')
-const Student = require('../models/Students')
+import jwt from 'jsonwebtoken'
+import Student from '../models/Students.js'
 
 const protect = async (req, res, next) => {
     try {
@@ -37,4 +37,4 @@ const protect = async (req, res, next) => {
     }
 }
 
-module.exports = { protect }
+export { protect }

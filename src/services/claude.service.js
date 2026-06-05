@@ -1,10 +1,13 @@
-const Anthropic = require('@anthropic-ai/sdk')
+import Anthropic from '@anthropic-ai/sdk'
 
-const client = new Anthropic({
-    apiKey: process.env.ANTHROPIC_API_KEY
-})
 
 const generateMaterialContent = async (extractedText, courseName) => {
+    console.log(process.env.ANTHROPIC_API_KEY)
+
+    const client = new Anthropic({
+        apiKey: process.env.ANTHROPIC_API_KEY
+    })
+
     const prompt = `You are an expert academic tutor. A student has uploaded course material for "${courseName}".
 
     Analyse the following text and generate study content in valid JSON format only. Do not include any text outside the JSON.
@@ -46,7 +49,7 @@ const generateMaterialContent = async (extractedText, courseName) => {
         ]
     })
 
-    const rawText = response.content[0].rawText
+    const rawText = response.content[0].text
 
     // strip markdown code fences if Claude wraps the JSON
     const cleaned = rawText.replace(/```json|```/g, '').trim()
@@ -56,4 +59,4 @@ const generateMaterialContent = async (extractedText, courseName) => {
     return parsed
 }
 
-module.exports = { generateMaterialContent }
+export { generateMaterialContent }

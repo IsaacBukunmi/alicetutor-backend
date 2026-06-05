@@ -1,8 +1,8 @@
-const path = require('path')
-const Course = require('../models/Courses')
-const Material = require('../models/Materials')
-const { extractText, chunkText } = require('./extraction.service')
-const { generateMaterialContent } = require('./claude.service')
+import path from 'path'
+import Material from '../models/Materials.js'
+import Course from '../models/Courses.js'
+import { extractText, chunkText } from './extraction.service.js'
+import { generateMaterialContent } from './claude.service.js'
 
 const uploadMaterial = async (studentId, courseId, file, title) => {
     // verify the course belongs to the student
@@ -83,7 +83,7 @@ const deleteMaterial = async (studentId, materialId) => {
     return material
 }
 
-module.exports = {
+export {
     uploadMaterial,
     getCourseMaterials,
     getSingleMaterial,

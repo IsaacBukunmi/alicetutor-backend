@@ -1,4 +1,9 @@
-const { uploadMaterial, getCourseMaterials, getSingleMaterial, deleteMaterial } = require("../services/material.service")
+import {
+    uploadMaterial,
+    getCourseMaterials,
+    getSingleMaterial,
+    deleteMaterial,
+  } from '../services/material.service.js'
 
 const upload = async (req, res) => {
     try {
@@ -85,4 +90,4 @@ const remove = async (req, res) => {
     }
 }
 
-module.exports = { upload, getAll, getOne, remove }
+export { upload, getAll, getOne, remove }

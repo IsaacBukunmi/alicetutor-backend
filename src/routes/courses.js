@@ -1,6 +1,6 @@
-const express = require('express')
-const { protect } = require('../middleware/auth')
-const { create, getAll, getOne, update, remove } = require('../controllers/course.controller')
+import express from 'express'
+import { protect } from '../middleware/auth.js'
+import { create, getAll, getOne, remove, update } from '../controllers/course.controller.js'
 const router = express.Router()
 
 router.use(protect)
@@ -11,4 +11,4 @@ router.get('/:id', getOne)
 router.patch('/:id', update)
 router.delete('/:id', remove)
 
-module.exports = router
+export default router

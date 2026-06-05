@@ -1,4 +1,10 @@
-const { createCourse, getStudentCourses, getSingleCourse, deleteCourse, updateCourse } = require("../services/course.service")
+import {
+    createCourse,
+    getStudentCourses,
+    getSingleCourse,
+    deleteCourse,
+    updateCourse,
+} from '../services/course.service.js'
 
 const create = async (req, res) => {
     try{
@@ -76,7 +82,7 @@ const update = async (req, res) => {
     }
 }
 
-module.exports = {
+export {
     create, 
     getAll,
     getOne, 

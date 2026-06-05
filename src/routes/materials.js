@@ -1,11 +1,11 @@
-const express = require('express')
+import express from 'express'
+import { protect } from '../middleware/auth.js'
+import upload from '../middleware/upload.js'
+import { upload as uploadMaterial, getAll, getOne, remove } from '../controllers/material.controller.js'
+
 const router = express.Router({ mergeParams: true })
-const { protect } = require('../middleware/upload')
-const upload = require('../middleware/upload')
 
 router.use(protect)
-
-const { upload: uploadMaterial, getAll, getOne, remove } = require('../controllers/material.controller')
 
 router.post('/', upload.single('file'), uploadMaterial)
 router.get('/', getAll)
@@ -13,4 +13,4 @@ router.get('/:materialId', getOne)
 router.delete('/:materialId', remove)
 
 
-module.exports = router
+export default router

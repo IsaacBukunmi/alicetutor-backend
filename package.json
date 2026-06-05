@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.100.1",
     "bcryptjs": "^3.0.3",
@@ -24,7 +24,8 @@
     "mongoose": "^9.6.3",
     "multer": "^2.1.1",
     "officeparser": "^7.1.0",
-    "pdf-parse": "^2.4.5"
+    "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "^6.0.227"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"

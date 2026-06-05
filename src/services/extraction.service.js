@@ -1,15 +1,25 @@
-const fs = require('fs')
-const path = require('path')
-const pdfParse =  require('pdf-parse')
-const mammoth = require('mammoth')
-const officeParser = require('officeparser')
+import fs from 'fs'
+import path from 'path'
+import mammoth from 'mammoth'
+import officeParser from 'officeparser'
+import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs'
 
 const extractText = async (filePath, fileType) => {
     try{
-        if(fileType === 'pdf'){
+        if (fileType === 'pdf') {
             const dataBuffer = fs.readFileSync(filePath)
-            const data = await pdfParse(dataBuffer)
-            return data.text
+            const loadingTask = getDocument({ data: new Uint8Array(dataBuffer) })
+            const pdfDocument = await loadingTask.promise
+            let fullText = ''
+      
+            for (let i = 1; i <= pdfDocument.numPages; i++) {
+              const page = await pdfDocument.getPage(i)
+              const textContent = await page.getTextContent()
+              const pageText = textContent.items.map(item => item.str).join(' ')
+              fullText += pageText + '\n'
+            }
+      
+            return fullText
         }
 
         if(fileType === 'docx'){
@@ -63,4 +73,4 @@ const chunkText = (text, maxChunkSize = 60000) => {
     return chunks
 }
 
-module.exports = { extractText, chunkText}
+export { extractText, chunkText}

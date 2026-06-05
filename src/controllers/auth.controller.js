@@ -1,4 +1,4 @@
-const { registerStudent, loginStudent } = require("../services/auth.service");
+import { registerStudent, loginStudent } from '../services/auth.service.js'
 
 const register =  async (req, res) => {
     try{
@@ -52,4 +52,4 @@ const login = async (req, res) => {
     }   
 }
 
-module.exports = { register, login }
+export{ register, login }
