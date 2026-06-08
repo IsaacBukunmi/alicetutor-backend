@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import Student from '../models/Students.js'
+import Student from '../models/Student.js'
 
 
 const registerStudent = async(studentData) => {

@@ -1,6 +1,6 @@
 import path from 'path'
-import Material from '../models/Materials.js'
-import Course from '../models/Courses.js'
+import Material from '../models/Material.js'
+import Course from '../models/Course.js'
 import { extractText, chunkText } from './extraction.service.js'
 import { generateMaterialContent } from './claude.service.js'
 

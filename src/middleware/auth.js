@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import Student from '../models/Students.js'
+import Student from '../models/Student.js'
 
 const protect = async (req, res, next) => {
     try {

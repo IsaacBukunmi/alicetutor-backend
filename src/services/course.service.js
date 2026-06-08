@@ -1,4 +1,4 @@
-import Course from "../models/Courses.js"
+import Course from "../models/Course.js"
 
 
 const createCourse = async (studentId, courseData) => {

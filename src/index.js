@@ -6,6 +6,7 @@ import connectDB from './config/db.js'
 import authRoutes from './routes/auth.js'
 import courseRoutes from './routes/courses.js'
 import materialRoutes from './routes/materials.js'
+import quizRoutes from './routes/quiz.js'
 
 dotenv.config()
 
@@ -22,6 +23,7 @@ app.use(express.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/courses', courseRoutes)
 app.use('/api/courses/:courseId/materials', materialRoutes)
+app.use('/api/courses/:courseId/quiz', quizRoutes)
 
 // test route
 app.get('/', (req, res) => {

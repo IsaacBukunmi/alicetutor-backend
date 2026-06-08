@@ -2,7 +2,6 @@ import Anthropic from '@anthropic-ai/sdk'
 
 
 const generateMaterialContent = async (extractedText, courseName) => {
-    console.log(process.env.ANTHROPIC_API_KEY)
 
     const client = new Anthropic({
         apiKey: process.env.ANTHROPIC_API_KEY
