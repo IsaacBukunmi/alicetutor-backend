@@ -7,6 +7,7 @@ import authRoutes from './routes/auth.js'
 import courseRoutes from './routes/courses.js'
 import materialRoutes from './routes/materials.js'
 import quizRoutes from './routes/quiz.js'
+import internalRoutes from './routes/internal.js'
 
 dotenv.config()
 
@@ -24,6 +25,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/courses', courseRoutes)
 app.use('/api/courses/:courseId/materials', materialRoutes)
 app.use('/api/courses/:courseId/quiz', quizRoutes)
+app.use('/internal', internalRoutes)
 
 // test route
 app.get('/', (req, res) => {
