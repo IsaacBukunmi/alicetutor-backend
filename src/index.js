@@ -8,6 +8,7 @@ import courseRoutes from './routes/courses.js'
 import materialRoutes from './routes/materials.js'
 import quizRoutes from './routes/quiz.js'
 import internalRoutes from './routes/internal.js'
+import chatRoutes from './routes/chat.js'
 
 dotenv.config()
 
@@ -25,6 +26,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/courses', courseRoutes)
 app.use('/api/courses/:courseId/materials', materialRoutes)
 app.use('/api/courses/:courseId/quiz', quizRoutes)
+app.use('/api/chat', chatRoutes)
 app.use('/internal', internalRoutes)
 
 // test route
