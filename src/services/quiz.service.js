@@ -89,7 +89,7 @@ const selectQuestions = (materials, accuracyMap) => {
 
     // Pull questions based on band weights
     // struggling: 50% of questions, developing: 35%, mastered: 15%
-    selected.push(...pullQuestions(struggling, 5, ['recall', 'applications']))
+    selected.push(...pullQuestions(struggling, 5, ['recall', 'application']))
     selected.push(...pullQuestions(developing, 3, ['application', 'analysis']))
     selected.push(...pullQuestions(mastered, 2, ['analysis']))
 
